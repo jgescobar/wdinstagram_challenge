@@ -1,4 +1,4 @@
-# The WDInstagram Collaborative Challenge!
+# The WDInstagram Collaboration Challenge!
 
 <img alt="A picture of nice food taken by a distant friend." src="public/images/instagramming-food.jpg" width="700px"/>
 
