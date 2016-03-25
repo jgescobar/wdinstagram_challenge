@@ -40,7 +40,8 @@ Partial points are available.
 ## Due
 
 Each issue/feature will be graded when the associated *milestone* (see
-the right side of the issue, under the labels) comes due.
+the right side of the issue, under the labels) comes due, *at the 
+latest*.
 
 <!-- Links -->
 
