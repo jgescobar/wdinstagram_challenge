@@ -12,7 +12,14 @@ var index = function(req, res, next) {
 };
 
 var show = function(req, res, next) {
-  // TODO: implement show!
+  Entry
+    .findById(id, function(err, todo) {
+      if (err || !entry) {
+        next(err);
+      } else {
+        res.json(entry);
+      }
+    });
 };
 
 var create = function(req, res, next) {
@@ -47,7 +54,7 @@ var like = function(req, res, next) {
 
 module.exports = {
   index:  index,
-  // show:   show,
+  show:   show,
   like:   like,
   // create: create
 };

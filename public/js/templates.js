@@ -38,7 +38,6 @@ var indexEntriesTemplate = `
 `;
 var renderIndexEntries = _.template(indexEntriesTemplate);
 
-// TODO: use this template for a form for creating an entry!
 var entryFormTemplate = `
 <form action="/entries" method="POST">
   <label>
