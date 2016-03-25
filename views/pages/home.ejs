@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<%- include("../partials/head.ejs") %>
+</head>
+<body>
+<main class="container">
+  <%- include("../partials/nav.ejs") %>
+  <div id="content" class="feed box">
+    <% entries.forEach(function(entry){ %>
+      <div class="entry" id="<%= entry.id %>">
+        <a class="show-link">
+          <span class="author-text"><%= entry.author %></span>
+        </a>
+        <span class="date-text"><%= entry.dateTaken %></span>
+        <hr class="before"/>
+        <a class="show-link">
+          <img alt="Entry Image" src="<%= entry.photoUrl %>"/>
+        </a>
+        <hr class="after"/>
+        <span class="likes-text">
+          <a class="like-link">
+            <%- entry.html_formatted_likes() %>
+          </a>
+        </span>
+      </div>
+    <% }) %>
+  </div>
+</main>
+<script src="/js/templates.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
