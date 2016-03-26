@@ -11,15 +11,17 @@ var index = function(req, res, next) {
     });
 };
 
-var show = function(req, res, next) {
-  Entry
-    .findById(id, function(err, todo) {
-      if (err || !entry) {
-        next(err);
-      } else {
-        res.json(entry);
-      }
-    });
+function show(req, res, next) {
+  var id = req.params.id;
+  console.log("get me that single image!!", id);
+
+  Entry.findById(id, function(err, entry) {
+    if (err || !entry) {
+      next(err);
+    } else {
+      res.json(entry);
+    }
+  });
 };
 
 var create = function(req, res, next) {
