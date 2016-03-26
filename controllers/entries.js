@@ -16,11 +16,10 @@ function show(req, res, next) {
   console.log("get me that single image!!", id);
 
   Entry.findById(id, function(err, entry) {
-    if (err || !entry) {
-      next(err);
-    } else {
-      res.json(entry);
+    if (err) {
+      res.send(err);
     }
+      res.json(entry);
   });
 };
 
