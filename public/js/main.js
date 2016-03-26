@@ -78,7 +78,7 @@ function fetchEntry(entryId) {
   .then(
     function(res) {
       console.log("Success:", res);
-      renderAndAppendEntry(res.data);
+      renderAndAppendEntry(res);
     },
     function(err) {
       console.log("Failed:", err);

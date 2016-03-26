@@ -11,8 +11,16 @@ var index = function(req, res, next) {
     });
 };
 
-var show = function(req, res, next) {
-  // TODO: implement show!
+function show(req, res, next) {
+  var id = req.params.id;
+  console.log("get me that single image!!", id);
+
+  Entry.findById(id, function(err, entry) {
+    if (err) {
+      res.send(err);
+    }
+      res.json(entry);
+  });
 };
 
 var create = function(req, res, next) {
@@ -47,7 +55,7 @@ var like = function(req, res, next) {
 
 module.exports = {
   index:  index,
-  // show:   show,
+  show:   show,
   like:   like,
   // create: create
 };
