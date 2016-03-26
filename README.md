@@ -27,7 +27,7 @@ of the repo.***
 As usual, you will be scored on the scale of 0-3, with 2 being passing.
 You recieve 1 point for each issue if:
 
-- you completely delivered it's feature,
+- you completely delivered its feature,
 - you used the issue (or newly created issues) to discuss and receive
   help from your collaborators (instructors) following the 
   [issue guidelines][issues], and
