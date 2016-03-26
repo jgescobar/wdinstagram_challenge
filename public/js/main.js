@@ -92,7 +92,24 @@ function createEntry(entry) {
 }
 
 function likeEntry(entryId) {
-  // TODO: implement liking an entry!
+  var formattedLikes = function(likes) {
+    console.log(likes);
+})
+  $.ajax({
+    method: "POST",
+    url:    "/api/entries/" + entryId + "/likes"
+  })
+  .then(
+    function(res) {
+      console.log("Like success:", res);
+      formattedLikes(res);
+    },
+    function(err) {
+      console.log("Like failed:", err);
+      alert(err.message);
+  }
+    }
+  );
 }
 
 // RENDER FUNCTIONS
