@@ -18,8 +18,9 @@ function show(req, res, next) {
   Entry.findById(id, function(err, entry) {
     if (err) {
       res.send(err);
+    } else {
+      res.json({data: entry});
     }
-      res.json(entry);
   });
 };
 
