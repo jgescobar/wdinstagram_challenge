@@ -94,7 +94,7 @@ function createEntry(entry) {
 function likeEntry(entryId) {
   var formattedLikes = function(likes) {
     console.log(likes);
-})
+  }
   $.ajax({
     method: "POST",
     url:    "/api/entries/" + entryId + "/likes"
@@ -103,11 +103,11 @@ function likeEntry(entryId) {
     function(res) {
       console.log("Like success:", res);
       formattedLikes(res);
+      window.location.reload()
     },
     function(err) {
       console.log("Like failed:", err);
       alert(err.message);
-  }
     }
   );
 }
