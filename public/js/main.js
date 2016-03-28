@@ -91,16 +91,17 @@ function createEntry(entry) {
   $.ajax({
     method:  "POST",
     url:      "/api/entries/",
+    data:     entry
   })
   .then(
     function(res) {
       console.log("Congrats, new entry made:", res);
-      renderAndAppendEntry(res)
+      renderAndAppendEntry(res);
     },
     function(err) {
       console.log("sorry you failed:", err);
     }
-  )
+  );
 }
 
 function likeEntry(entryId) {

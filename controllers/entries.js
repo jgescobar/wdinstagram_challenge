@@ -17,7 +17,7 @@ function show(req, res, next) {
 
   Entry.findById(id, function(err, entry) {
     if (err) {
-      res.send(err);
+      return res.status(404).json({message: "404 entry not found."});
     } else {
       res.json({data: entry});
     }
@@ -25,13 +25,18 @@ function show(req, res, next) {
 };
 
 var create = function(req, res, next) {
-  var newEntry = new Entry(req.body);
-  newEntry.save(function(err, savedEntry) {
-    if (err) next(err)
+    console.log("ServerSide New Instagram!!", req.body);
 
-    res.json(savedEntry);
-  });
-};
+var newEntry = new Entry(req.body)
+
+newEntry.save(function(err, savedEntry) {
+     if (err || !savedEntry) {
+     return res.status(422).json({message: "422 Unprocessable Entity."});
+    } else {
+      res.json(savedEntry);
+  }
+ });
+}
 
 var like = function(req, res, next) {
   Entry
