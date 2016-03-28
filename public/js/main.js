@@ -88,26 +88,36 @@ function fetchEntry(entryId) {
 }
 
 function createEntry(entry) {
-  // TODO: implement create!
+  $.ajax({
+    method:  "POST",
+    url:      "/api/entries/",
+  })
+  .then(
+    function(res) {
+      console.log("Congrats, new entry made:", res);
+      renderAndAppendEntry(res)
+    },
+    function(err) {
+      console.log("sorry you failed:", err);
+    }
+  )
 }
 
 function likeEntry(entryId) {
-  // TODO: implement liking an entry
-     $.ajax({
-        method: "POST",
-        url:    "/api/entries/" + entryId + "/likes"
-      })
-      .then(
-        function(res) {
-          console.log("like rendered:", res);
-          renderAndAppendEntry(res.data)
-        },
-        function(err) {
-          console.log("Failed:", err);
-          alert(err.message);
-      }
-    );
-  }
+  $.ajax({
+    method: "POST",
+    url:    "/api/entries/" + entryId + "/likes"
+  })
+  .then(
+    function(res) {
+      console.log("like rendered:", res);
+      renderAndAppendEntry(res.data)
+    },
+    function(err) {
+      console.log("Failed:", err);
+    }
+  );
+}
 
 // RENDER FUNCTIONS
 

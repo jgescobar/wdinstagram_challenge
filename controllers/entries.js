@@ -25,7 +25,12 @@ function show(req, res, next) {
 };
 
 var create = function(req, res, next) {
-  // TODO: implement create!
+  var newEntry = new Entry(req.body);
+  newEntry.save(function(err, savedEntry) {
+    if (err) next(err)
+
+    res.json(savedEntry);
+  });
 };
 
 var like = function(req, res, next) {
@@ -58,5 +63,5 @@ module.exports = {
   index:  index,
   show:   show,
   like:   like,
-  // create: create
+  create: create
 };
